@@ -1,2 +1,2 @@
 # HD1Sharp
-CPS for Ailucne HD1
+CPS for Ailunce HD1 DMR
