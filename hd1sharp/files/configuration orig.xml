@@ -1,0 +1,248 @@
+<Configuration>
+	<BasicInformation>
+		<SerialNo>HD111xxxx</SerialNo>
+		<VersionDate>2018-3-8</VersionDate>
+		<FirmwareVersion>6-GPS</FirmwareVersion>
+	</BasicInformation>
+	<Settings>
+		<WritingPasswordSwitch>false</WritingPasswordSwitch>
+		<WritingPassword>000000</WritingPassword>
+		<ReadingPasswordSwitch>false</ReadingPasswordSwitch>
+		<ReadingPassword>000000</ReadingPassword>
+		<LanguageSettings>ON</LanguageSettings>
+		<SquelchLevel>4</SquelchLevel>
+		<RelayRetransmission>2</RelayRetransmission>
+		<BatterySaveStartupTime>5</BatterySaveStartupTime>
+		<BatterySaveMode>1:4</BatterySaveMode>
+		<PowerSavingDecodingRate>Fast</PowerSavingDecodingRate>
+		<VoiceAnnunciation>ENGLISH</VoiceAnnunciation>
+		<DigitalHangUpResidence>OFF</DigitalHangUpResidence>
+		<IndividualWorkResponseTime>1</IndividualWorkResponseTime>
+		<InvidualWorkReminderTime>1</InvidualWorkReminderTime>
+		<ZoneSelectionA>No Zone</ZoneSelectionA>
+		<ZoneSelectionB>No Zone</ZoneSelectionB>
+		<TailEliminateMode>Reverse Code</TailEliminateMode>
+		<TailEliminate>true</TailEliminate>
+		<KeyLockSwitch>false</KeyLockSwitch>
+		<AutoKeyLock>false</AutoKeyLock>
+		<Tones>true</Tones>
+		<Roger>false</Roger>
+		<Bdr>false</Bdr>
+		<RadioKill>false</RadioKill>
+		<RadioWakeUp>false</RadioWakeUp>
+		<WorkingFrequency>A-Frequency</WorkingFrequency>
+		<BackLightTime>5</BackLightTime>
+		<PowerOnPasswordSwitch>false</PowerOnPasswordSwitch>
+		<PowerOnPassword>000000</PowerOnPassword>
+		<VOXDelayTime>0.5s</VOXDelayTime>
+		<PressPTTCancelVOX>false</PressPTTCancelVOX>
+		<InsertHeadsetMakeVOX>false</InsertHeadsetMakeVOX>
+	</Settings>	
+	<KeySettings>
+		<SideKeyLongPress1>Not Set</SideKeyLongPress1>
+		<SideKeyShortPress1>Radio</SideKeyShortPress1>
+		<SideKeyLongPress2>Not Set</SideKeyLongPress2>
+		<SideKeyShortPress2>Scan</SideKeyShortPress2>
+	</KeySettings>
+	<IDSettings>
+		<Radio radioId="1234" radioName="radio-1"/>
+		<Radio radioId="2345" radioName="radio-2"/>
+		<Radio radioId="3456" radioName="radio-3"/>
+	</IDSettings>
+	<RadioChannels>
+		<RadioDW>OFF</RadioDW>
+		<WorkMode>CH</WorkMode>
+		<WorkChannel>2</WorkChannel>
+		<Channel frequency="96.00"/>
+		<Channel frequency="104.30"/>
+		<Channel frequency="104.70"/>
+		<Channel frequency="105.50"/>
+	</RadioChannels>
+	<PriorityContacts>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2 Europe</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>F1ZGO TG208 FR</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>208008</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG13 WW English</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>13</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG8 Region</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>8</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG21 EU French</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>21</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG208 FR TS1</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>208</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG9 LCL TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>9</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG1 Worldwide</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>1</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG11 WW French</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>11</CallID>
+		</Contact>
+
+			<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2080 IDF TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2080</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2081 PACA TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2081</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2082 ALPES TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2082</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2083 MIDI TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2083</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2084 EST TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2084</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2085 OUEST TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2085</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2086 ATLAN TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2086</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2087 NORD TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2087</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2088 CENT TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2088</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG2089 DOM TS2</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>2089</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG99 Simplex</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>99</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG937 FR</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>937</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG20811 YSF</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>20811</CallID>
+		</Contact>
+		<Contact>
+			<CallType>Group Call</CallType>
+			<ContactAlias>TG20812 DSTAR</ContactAlias>
+			<City/>
+			<Province/>
+			<Country/>
+			<CallID>20812</CallID>
+		</Contact>
+	</PriorityContacts>
+</Configuration>

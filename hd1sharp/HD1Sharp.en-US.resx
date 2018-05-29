@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1304, 49</value>
+  </data>
+  <data name="MainTreeView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 708</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1029, 708</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1310, 792</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="appToolbar.Font" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="appToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1304, 39</value>
+  </data>
+  <data name="fileOpenButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVFhH7ZaxSsNAAIYvuVTBWQXFzVFHB59AcHAQdPEh
+        nAWFSvERHBRFobXJXaCLgjiJ4OioHXTRSRAK1buLtQiNl/RKLskFxJ7aIR98pAR+/r9tSAJycgaLWmMK
+        IlY1MbuFNq1nablsSyQ0UvOC8geImf896TY47wyLdP9A5C3B48dPdZnCSuMjHKELiOiqskiHwVhEXWB7
+        k6Iuza8OCCzudfjxRNSlkQcYmFzwo6tdRMqiLo08oGDTGXH67xjYAabDrlT3gr4N/o5Tf0TUZAxA7dne
+        Oe0iegh83wh7AlQD+LlSLKRRE9O1sLhHaoB7N2QiciOHtMlveKDCJkR1l9QApzUNUfM5FtQkv66uRW1E
+        cgB02ALEzZYc1CX/+ddFbURygOWQTTmkzYPX9941FiM5wMDsMhbUpc3qoEzHRW2EPMBCb/Pdp10irEED
+        0zOw7xdEbYQ8gH/ekUM6NV22ISrjxAZgei+HdGrZ3pyojMOv+kW4+9JWhbSJyBMo+paoTFAlo+G7oCqo
+        w+CassmKaMsAkzHoeiX+boh4SP1M/4k2PeLly9nfPifn3wDgC14L9Qsk2U9eAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tabContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1023, 658</value>
+  </data>
+  <data name="BasicInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>914, 372</value>
+  </data>
+  <data name="RadioWakeUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>634, 230</value>
+  </data>
+  <data name="RadioKill.Location" type="System.Drawing.Point, System.Drawing">
+    <value>663, 203</value>
+  </data>
+  <data name="Bdr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>689, 178</value>
+  </data>
+  <data name="Tones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 124</value>
+  </data>
+  <data name="AutoKeyLock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>639, 97</value>
+  </data>
+  <data name="KeyLockSwitch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>626, 72</value>
+  </data>
+  <data name="TailEliminate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 45</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 23</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 316</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 289</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 262</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 235</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 208</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 181</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 154</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 127</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 100</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 48</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 73</value>
+  </data>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>911, 70</value>
+  </data>
+  <data name="InsertHeadsetMakeVOX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 43</value>
+  </data>
+  <data name="PressPTTCancelVOX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 20</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 24</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>911, 85</value>
+  </data>
+  <data name="PowerOnPasswordSwitch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>610, 22</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 51</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>911, 75</value>
+  </data>
+  <data name="KeySettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="OneKeyCall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>918, 381</value>
+  </data>
+  <data name="oneKeyCallMessageGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>918, 381</value>
+  </data>
+  <data name="IDSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="Channel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DecQTDQT.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="EncQTDQT.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="Radio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="PriorityContacts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1009, 624</value>
+  </data>
+  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 587</value>
+  </data>
+  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1003, 34</value>
+  </data>
+  <data name="AddressBookContacts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="Encryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="ZoneInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 630</value>
+  </data>
+  <data name="ZoneInformation.Text" xml:space="preserve">
+    <value>Zone Information</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1023, 38</value>
+  </data>
+  <data name="tabTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1023, 28</value>
+  </data>
+  <data name="menuStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 2, 0, 2</value>
+  </data>
+  <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1310, 24</value>
+  </data>
+  <data name="menuStrip.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save As...</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="powerOnLogoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
+  <data name="deviceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="readToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 22</value>
+  </data>
+  <data name="writeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 22</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 6</value>
+  </data>
+  <data name="portToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 22</value>
+  </data>
+  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
+  </data>
+  <data name="windowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="cascadeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="tileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="arrangeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1310, 816</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        Af//gAH//8AH///gB///4Af//+A////i//8=
+</value>
+  </data>
+</root>
