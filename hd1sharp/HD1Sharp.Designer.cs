@@ -95,6 +95,8 @@
             this.SerialNo = new System.Windows.Forms.TextBox();
             this.Settings = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.callerDisplayTime = new System.Windows.Forms.ComboBox();
             this.RadioWakeUp = new System.Windows.Forms.CheckBox();
             this.RadioKill = new System.Windows.Forms.CheckBox();
             this.Bdr = new System.Windows.Forms.CheckBox();
@@ -514,6 +516,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label36);
+            this.groupBox2.Controls.Add(this.callerDisplayTime);
             this.groupBox2.Controls.Add(this.RadioWakeUp);
             this.groupBox2.Controls.Add(this.RadioKill);
             this.groupBox2.Controls.Add(this.Bdr);
@@ -551,6 +555,29 @@
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // label36
+            // 
+            resources.ApplyResources(this.label36, "label36");
+            this.label36.Name = "label36";
+            // 
+            // callerDisplayTime
+            // 
+            resources.ApplyResources(this.callerDisplayTime, "callerDisplayTime");
+            this.callerDisplayTime.FormattingEnabled = true;
+            this.callerDisplayTime.Items.AddRange(new object[] {
+            resources.GetString("callerDisplayTime.Items"),
+            resources.GetString("callerDisplayTime.Items1"),
+            resources.GetString("callerDisplayTime.Items2"),
+            resources.GetString("callerDisplayTime.Items3"),
+            resources.GetString("callerDisplayTime.Items4"),
+            resources.GetString("callerDisplayTime.Items5"),
+            resources.GetString("callerDisplayTime.Items6"),
+            resources.GetString("callerDisplayTime.Items7"),
+            resources.GetString("callerDisplayTime.Items8"),
+            resources.GetString("callerDisplayTime.Items9"),
+            resources.GetString("callerDisplayTime.Items10")});
+            this.callerDisplayTime.Name = "callerDisplayTime";
             // 
             // RadioWakeUp
             // 
@@ -2743,6 +2770,8 @@
         internal System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn Available;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox callerDisplayTime;
     }
 }
 

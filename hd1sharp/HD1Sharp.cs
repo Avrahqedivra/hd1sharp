@@ -507,6 +507,7 @@ namespace hd1sharp
             WriteTag(xmlWriter, "Bdr", ((CheckBox)Settings.Controls.Find("Bdr", true)[0]).Checked.ToString().ToLower());
             WriteTag(xmlWriter, "RadioKill", ((CheckBox)Settings.Controls.Find("RadioKill", true)[0]).Checked.ToString().ToLower());
             WriteTag(xmlWriter, "RadioWakeUp", ((CheckBox)Settings.Controls.Find("RadioWakeUp", true)[0]).Checked.ToString().ToLower());
+            WriteTag(xmlWriter, "CallerDisplayTime", Settings.Controls.Find("CallerDisplayTime", true)[0].Text);
             WriteTag(xmlWriter, "WorkingFrequency", Settings.Controls.Find("WorkingFrequency", true)[0].Text);
             WriteTag(xmlWriter, "BackLightTime", Settings.Controls.Find("BackLightTime", true)[0].Text);
             WriteTag(xmlWriter, "PowerOnPasswordSwitch", ((CheckBox)Settings.Controls.Find("PowerOnPasswordSwitch", true)[0]).Checked.ToString().ToLower());
@@ -934,6 +935,7 @@ namespace hd1sharp
                                 case "WorkingFrequency":
                                 case "BackLightTime":
                                 case "VOXDelayTime":
+                                case "CallerDisplayTime":
                                     ((ComboBox)Settings.Controls.Find(name, true)[0]).Text = reader.Value;
                                     break;
 

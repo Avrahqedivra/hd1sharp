@@ -31,6 +31,7 @@
     <Bdr>false</Bdr>
     <RadioKill>false</RadioKill>
     <RadioWakeUp>false</RadioWakeUp>
+    <CallerDisplayTime>1</CallerDisplayTime>
     <WorkingFrequency>A-Frequency</WorkingFrequency>
     <BackLightTime>5</BackLightTime>
     <PowerOnPasswordSwitch>false</PowerOnPasswordSwitch>
@@ -50,15 +51,6 @@
     <Radio radioId="2345" radioName="radio-2" />
     <Radio radioId="3456" radioName="radio-3" />
   </IDSettings>
-  <Zones>
-		<Zone0>
-			<Channel>HOTSPOT</Channel>
-			<Channel>TG2080 IDF TS2</Channel>
-			<Channel>DMR1 TG208</Channel>
-			<Channel>F1ZGO R0</Channel>
-			<Channel>DMR1 TG9</Channel>
-		</Zone0>
-  </Zones>
   <RadioChannels>
     <RadioDW>OFF</RadioDW>
     <WorkMode>CH</WorkMode>
