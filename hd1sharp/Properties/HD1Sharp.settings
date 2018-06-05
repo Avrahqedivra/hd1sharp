@@ -8,7 +8,7 @@
     <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">1280, 768</Value>
     </Setting>
-    <Setting Name="WindowState" Type="System.String" Scope="User">
+    <Setting Name="WindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
     <Setting Name="IsMaximized" Type="System.Boolean" Scope="User">

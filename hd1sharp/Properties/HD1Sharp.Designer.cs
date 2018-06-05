@@ -13,11 +13,11 @@ namespace hd1sharp.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class HD1Sharp : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        private static HD1Sharp defaultInstance = ((HD1Sharp)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new HD1Sharp())));
         
-        public static Settings Default {
+        public static HD1Sharp Default {
             get {
                 return defaultInstance;
             }
@@ -50,9 +50,9 @@ namespace hd1sharp.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public string WindowState {
+        public global::System.Windows.Forms.FormWindowState WindowState {
             get {
-                return ((string)(this["WindowState"]));
+                return ((global::System.Windows.Forms.FormWindowState)(this["WindowState"]));
             }
             set {
                 this["WindowState"] = value;
