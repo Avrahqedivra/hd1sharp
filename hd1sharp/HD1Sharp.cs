@@ -100,7 +100,7 @@ namespace hd1sharp
         delegate void SetComboBoxCellType(int iRowIndex, int iColumnIndex);
         bool bIsComboBox = false;
 
-        ResourceManager res_man;
+        // ResourceManager res_man;
 
         public static HD1Sharp Instance;
 
@@ -112,10 +112,11 @@ namespace hd1sharp
 
             Instance = this;
 
-            Console.WriteLine("You are speaking '{0}'", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
-            res_man = new ResourceManager("HD1Sharp.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
-            String str = res_man.GetString("lbl_error");
-
+            /*
+                        Console.WriteLine("You are speaking '{0}'", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+                        res_man = new ResourceManager("HD1Sharp.lang_" + System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, Assembly.GetExecutingAssembly());
+                        String str = res_man.GetString("lbl_error");
+            */
             createTreeView();
             createChannelGrid();
             createAddressBookGrid();
@@ -174,11 +175,11 @@ namespace hd1sharp
 
             TreeNode tn0, tn1, tn2, tn3, tn4;
             TreeNode[] array = new TreeNode[] {
-                tn0 = new TreeNode(res_man.GetString("lbl_Basic_Information")),
-                tn1 = new TreeNode(res_man.GetString("lbl_Settings")),
-                tn2 = new TreeNode(res_man.GetString("lbl_Key_Settings")),
-                tn3 = new TreeNode(res_man.GetString("lbl_One_Key_Call")),
-                tn4 = new TreeNode(res_man.GetString("lbl_ID_Settings"))
+                tn0 = new TreeNode("Basic_Information"),
+                tn1 = new TreeNode("Settings"),
+                tn2 = new TreeNode("Key_Settings"),
+                tn3 = new TreeNode("One_Key_Call"),
+                tn4 = new TreeNode("Settings")
             };
 
             tn0.ImageIndex = 3;
@@ -232,6 +233,15 @@ namespace hd1sharp
             Type treeType = MainTreeView.GetType();
             PropertyInfo pi = treeType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
             pi.SetValue(MainTreeView, true, null);
+        }
+
+        private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {            
+            foreach (ToolStripItem item in fileToolStripMenuItem.DropDownItems)
+            {
+                if ((item.Text == "Save") || (item.Text == "Save As..."))
+                    item.Enabled = strConfigFilePath != "";
+            }                
         }
 
         private void addZoneMenuItem_Click(object sender, EventArgs e)
