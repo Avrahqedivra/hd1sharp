@@ -80,16 +80,6 @@
     <Compile Include="HD1Sharp.Designer.cs">
       <DependentUpon>HD1Sharp.cs</DependentUpon>
     </Compile>
-    <Compile Include="lang_cn.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>lang_cn.resx</DependentUpon>
-    </Compile>
-    <Compile Include="lang_en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>lang_en.resx</DependentUpon>
-    </Compile>
     <Compile Include="Member.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,14 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HD1Sharp.resx">
       <DependentUpon>HD1Sharp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="lang_cn.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>lang_cn.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="lang_en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>lang_en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
