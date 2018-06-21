@@ -2264,6 +2264,8 @@ namespace hd1sharp
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            saveFileDialog1.FileName = Path.GetFileName(strConfigFilePath);
+            saveFileDialog1.OverwritePrompt = true;
             saveFileDialog1.InitialDirectory = ".";
             saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
