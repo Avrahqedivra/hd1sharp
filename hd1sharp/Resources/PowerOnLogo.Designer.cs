@@ -64,6 +64,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Read";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ReadPowerOnLogo);
             // 
             // button3
             // 
@@ -86,14 +87,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(99, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 15);
+            this.label1.Size = new System.Drawing.Size(327, 32);
             this.label1.TabIndex = 5;
             this.label1.Text = "Completion percentage {0}%";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PowerOnLogo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 257);
             this.Controls.Add(this.label1);

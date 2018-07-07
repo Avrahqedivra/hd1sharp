@@ -35,6 +35,9 @@ using System.Xml;
 using System.Collections.Generic;
 using hd1sharp.Resources;
 
+using System.Threading;
+using SerialPortLib2;
+
 namespace hd1sharp
 {
 
@@ -66,6 +69,8 @@ namespace hd1sharp
             "D631N", "D632N", "D654N", "D662N", "D664N", "D703N", "D712N", "D723N", "D731N", "D732N",
             "D734N", "D743N", "D754N"
         };
+
+        public String defaultPort = "COM3";
 
         public ZoneManager zoneManager;
         public ContextMenu zonesPopupMenu, zonePopupMenu;
@@ -2322,6 +2327,7 @@ namespace hd1sharp
         {
             PowerOnLogo p = new PowerOnLogo();
             p.StartPosition = FormStartPosition.CenterParent;
+            p.Port = defaultPort;
             p.ShowDialog(this);
         }
 
@@ -2342,7 +2348,11 @@ namespace hd1sharp
             if (p.portsList.Items.Count > 0)
                 p.portsList.SelectedIndex = 0;
 
-            p.ShowDialog(this);
+            if (p.ShowDialog(this) == DialogResult.OK)
+            {
+                if (p.portsList.SelectedIndex != -1)
+                    defaultPort = p.portsList.Items[p.portsList.SelectedIndex].ToString();
+            }
         }
 
         private void ExportAddressBook_Click(object sender, EventArgs e)
