@@ -38,12 +38,23 @@ namespace hd1sharp.Resources
 {
     public partial class PowerOnLogo : Form
     {
-        private string defaultPort = "COM1";
-        private static SerialPortInput serialPort;
+        public string defaultPort = "COM3";
+        public static int percentage = 0;
+        public static Byte[] command;
+        public static SerialPortInput serialPort;
 
         public PowerOnLogo()
         {
             InitializeComponent();
+            this.percent.Text = String.Format("Completion percentage {0}%", GetPercentage);
+
+            if (!String.IsNullOrWhiteSpace(defaultPort))
+            {
+                serialPort = new SerialPortInput(defaultPort, 115200, SerialPortLib2.Port.Parity.None, 8, SerialPortLib2.Port.StopBits.One, SerialPortLib2.Port.Handshake.RequestToSend, true);
+                serialPort.ConnectionStatusChanged += SerialPort_ConnectionStatusChanged;
+                serialPort.MessageReceived += SerialPort_MessageReceived;
+                serialPort.Connect();
+            }
         }
 
         public String Port
@@ -77,53 +88,76 @@ namespace hd1sharp.Resources
             return new string(c);
         }
 
+        // 68 0f 00 01 00 07 07 00 00 e8 10
+
+        private void sendCommand() {
+        }
+
         private void ReadPowerOnLogo(object sender, EventArgs e)
         {
-            serialPort = new SerialPortInput();
-            serialPort.ConnectionStatusChanged += SerialPort_ConnectionStatusChanged;
-            serialPort.MessageReceived += SerialPort_MessageReceived;
+            // 68 31 00 01 02 cd 00 04 d0 1d 10 first  
+            // 68 31 00 01 64 cd 00 04 f7 1d 10 last
+            // 45 4e 44                         E N D
 
-            while (true)
+            percentage = 0;
+            command = new Byte[] { 0x68, 0x31, 0x00, 0x01, 0x02, 0xCD, 0x00, 0x04, 0xD0, 0x1D, 0x10 };
+
+            // Try sending some data if connected
+            if (serialPort.IsConnected)
             {
-                if (String.IsNullOrWhiteSpace(defaultPort))
-                    break;
-
-                serialPort.SetPort(defaultPort, 19200);
-                serialPort.Connect();
-
-                while (!serialPort.IsConnected)
-                {
-                    Console.Write(".");
-                    Thread.Sleep(250);
-                }
-
-                var command = new byte[] { 0x68, 0x31, 0x00, 0x01, 0x02, 0xCD, 0x00, 0x04, 0xD0, 0x1D };
-                // Try sending some data if connected
-                if (serialPort.IsConnected)
-                {
-                    Console.WriteLine("Sending message: {0}", ByteToHexBitFiddle(command));
-                    serialPort.SendMessage(command);
-                }
-                Console.WriteLine("\nTest sequence completed, now disconnecting.");
-
-                serialPort.Disconnect();
-
-                Thread.Sleep(2500);
-                break;
+                Console.WriteLine("Sending message: {0}", ByteToHexBitFiddle(command));
+                serialPort.SendMessage(command);
             }
+        }
 
-            serialPort.ConnectionStatusChanged -= SerialPort_ConnectionStatusChanged;
-            serialPort.MessageReceived -= SerialPort_MessageReceived;
+        public string GetPercentage
+        {
+            get
+            {
+                return percentage.ToString();
+            }
         }
 
         static void SerialPort_MessageReceived(object sender, MessageReceivedEventArgs args)
         {
-            Console.WriteLine("Received message: {0}", ByteToHexBitFiddle(args.Data));
+            Byte[] data = args.Data;
+
+            Console.WriteLine("Received message: {0}", ByteToHexBitFiddle(data));
+
+            for(int i=0; i < 10; i++)
+            {
+                if (data[i] != command[i])
+                {
+                    Console.WriteLine("Received bad message: {0}", ByteToHexBitFiddle(data));
+                    return;
+                }
+            }
+
+            Boolean even = data[4] % 2 == 0;
+            percentage = (Byte)(data[4] + (even ? 3 : 2));
+            command = new Byte[] { 0x68, 0x31, 0x00, 0x01, data[4], 0xCD, 0x00, 0x04, (Byte)(data[8]+1), 0x1D, 0x10 };
+            serialPort.SendMessage(command);
         }
 
         static void SerialPort_ConnectionStatusChanged(object sender, ConnectionStatusChangedEventArgs args)
         {
+            /*
+            if (OnConnecting != null)
+                OnConnecting(this, new StateDeviceEventArgs(args.Connected));
+            */
             Console.WriteLine("Serial port connection status = {0}", args.Connected);
+        }
+
+        private void PowerOnLogo_FormClosed(Object sender, FormClosedEventArgs e)
+        {
+            if (serialPort.IsConnected)
+            {
+                serialPort.ConnectionStatusChanged -= SerialPort_ConnectionStatusChanged;
+                serialPort.MessageReceived -= SerialPort_MessageReceived;
+ 
+                Console.WriteLine("\nTest sequence completed, now disconnecting.");
+                serialPort.Disconnect();
+            }
         }
     }
 }

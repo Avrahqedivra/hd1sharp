@@ -121,8 +121,8 @@ namespace hd1sharp
             Byte    commandCode;  // 0x31
             Int16   unknown;      // 0x00 0x01
             Byte    percent;      // percent complete
-            Byte    cfUnknown;    // 0xcf
-            Byte    length;       // read length
+            Byte    cfUnknown;    // 0xcd=read bitmap 0xcf=read memory
+            Byte    length;       // max read length
             Int16   address;      // block address
             Byte    terminator;    // 0x10
         };

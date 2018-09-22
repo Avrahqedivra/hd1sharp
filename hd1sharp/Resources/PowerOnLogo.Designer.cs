@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.percent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,22 +82,21 @@
             this.progressBar1.Size = new System.Drawing.Size(284, 27);
             this.progressBar1.TabIndex = 4;
             // 
-            // label1
+            // percent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 32);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Completion percentage {0}%";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.percent.AutoSize = true;
+            this.percent.Location = new System.Drawing.Point(99, 230);
+            this.percent.Name = "percent";
+            this.percent.Size = new System.Drawing.Size(159, 15);
+            this.percent.TabIndex = 5;
+            this.percent.Text = "Completion percentage {0}%";
             // 
             // PowerOnLogo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 257);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.percent);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -108,6 +107,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PowerOnLogo";
             this.Text = "PowerOnLogo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PowerOnLogo_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,6 +121,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label percent;
     }
 }
