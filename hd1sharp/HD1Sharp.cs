@@ -111,6 +111,20 @@ namespace hd1sharp
 
         public String strConfigFilePath = "";
 
+        /*
+        struct HD1COMMAND
+        {
+            Byte    sync;         // 0x68
+            Byte    commandCode;  // 0x31
+            Int16   unknown;      // 0x00 0x01
+            Byte    percent;      // percent complete
+            Byte    cfUnknown;    // 0xcf
+            Byte    length;       // read length
+            Int16   address;      // block address
+            Byte    terminator;    // 0x10
+        };
+        */
+
         public HD1Sharp()
         {
             InitializeComponent();
@@ -2760,6 +2774,7 @@ namespace hd1sharp
         {
 
         }
+
 
         private void button7_Click(object sender, EventArgs e)
         {
