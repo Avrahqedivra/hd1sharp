@@ -112,6 +112,9 @@ namespace hd1sharp
         public String strConfigFilePath = "";
 
         /*
+         * https://chirp.danplanet.com/issues/5809
+         */
+        /*
         struct HD1COMMAND
         {
             Byte    sync;         // 0x68
@@ -123,6 +126,17 @@ namespace hd1sharp
             Int16   address;      // block address
             Byte    terminator;    // 0x10
         };
+
+        // MEM_FORMAT
+        // #seekto 0x6F3000;
+        struct MEM_FORMAT {
+            Byte[132] unknown1;
+            Byte[14] name;
+            Byte[22] unknown2;
+            lbcd rxfreq4;
+            lbcd txfreq4;       
+            Byte[20] unknow3;
+        }
         */
 
         public HD1Sharp()
