@@ -39,9 +39,12 @@ namespace hd1sharp.Resources
     public partial class PowerOnLogo : Form
     {
         public string defaultPort = "COM3";
-        public static int percentage = 0;
+        public static float percentage = 0.0f;
         public static Byte[] command;
         public static SerialPortInput serialPort;
+        public static Boolean cancelled = false;
+        public static int currentIndex = 0;
+        public static Byte[] receivedData = new byte[1200];
 
         public PowerOnLogo()
         {
@@ -74,7 +77,21 @@ namespace hd1sharp.Resources
 
         }
 
-        static string ByteToHexBitFiddle(byte[] bytes)
+        static string StringToHexBitFiddle(String bytes)
+        {
+            char[] c = new char[bytes.Length * 2];
+            int b;
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                b = bytes[i] >> 4;
+                c[i * 2] = (char)(55 + b + (((b - 10) >> 31) & -7));
+                b = bytes[i] & 0xF;
+                c[i * 2 + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
+            }
+            return new string(c);
+        }
+
+            static string ByteToHexBitFiddle(byte[] bytes)
         {
             char[] c = new char[bytes.Length * 2];
             int b;
@@ -99,13 +116,14 @@ namespace hd1sharp.Resources
             // 68 31 00 01 64 cd 00 04 f7 1d 10 last
             // 45 4e 44                         E N D
 
-            percentage = 0;
+            percentage = 0.0f;
+            cancelled = false;
             command = new Byte[] { 0x68, 0x31, 0x00, 0x01, 0x02, 0xCD, 0x00, 0x04, 0xD0, 0x1D, 0x10 };
 
             // Try sending some data if connected
             if (serialPort.IsConnected)
             {
-                Console.WriteLine("Sending message: {0}", ByteToHexBitFiddle(command));
+                Console.WriteLine("Sending message:     {0}", ByteToHexBitFiddle(command));
                 serialPort.SendMessage(command);
             }
         }
@@ -114,29 +132,57 @@ namespace hd1sharp.Resources
         {
             get
             {
-                return percentage.ToString();
+                return Math.Round(percentage).ToString();
             }
         }
 
         static void SerialPort_MessageReceived(object sender, MessageReceivedEventArgs args)
         {
-            Byte[] data = args.Data;
+            if (cancelled)
+                return;
 
-            Console.WriteLine("Received message: {0}", ByteToHexBitFiddle(data));
+            for (int i = 0; i < args.Data.Length; i++) {
+                receivedData[currentIndex++] = args.Data[i];
+            }
 
-            for(int i=0; i < 10; i++)
+            if (args.Data.Length == 3)
+                return;
+
+            if (currentIndex < 1035)
+                return;
+
+            Console.WriteLine("Received message: {0} {1}", receivedData[4], ByteToHexBitFiddle(args.Data));
+
+            for (UInt16 i=0; i < 10; i++)
             {
-                if (data[i] != command[i])
+                if (receivedData[i] != command[i])
                 {
-                    Console.WriteLine("Received bad message: {0}", ByteToHexBitFiddle(data));
+                    Console.WriteLine("Received bad message: {0} {1}", receivedData[4], ByteToHexBitFiddle(args.Data));
+                    cancelled = true;
                     return;
                 }
             }
 
-            Boolean even = data[4] % 2 == 0;
-            percentage = (Byte)(data[4] + (even ? 3 : 2));
-            command = new Byte[] { 0x68, 0x31, 0x00, 0x01, data[4], 0xCD, 0x00, 0x04, (Byte)(data[8]+1), 0x1D, 0x10 };
-            serialPort.SendMessage(command);
+            if (receivedData[8] == 0xf7)
+            {
+                command = new Byte[] { (Byte)'E', (Byte)'N', (Byte)'D' };
+            }
+            else
+            {
+                Boolean even = receivedData[4] % 2 == 0;
+                if (receivedData[8] == 0xf6)
+                    percentage = 100;
+                else
+                    percentage += (float)2.5;
+                command = new Byte[] { 0x68, 0x31, 0x00, 0x01, (Byte)Math.Min((Byte)Math.Round(percentage), (Byte)100), 0xCD, 0x00, 0x04, (Byte)(receivedData[8] + 1), 0x1D, 0x10 };
+            }
+
+            if (!cancelled)
+            {
+                currentIndex = 0;
+                Console.WriteLine("Sending message:     {0}", ByteToHexBitFiddle(command));
+                serialPort.SendMessage(command);
+            }
         }
 
         static void SerialPort_ConnectionStatusChanged(object sender, ConnectionStatusChangedEventArgs args)

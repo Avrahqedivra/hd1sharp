@@ -123,8 +123,8 @@ namespace hd1sharp
             Byte    percent;      // percent complete
             Byte    cfUnknown;    // 0xcd=read bitmap 0xcf=read memory
             Byte    length;       // max read length
-            Int16   address;      // block address
-            Byte    terminator;    // 0x10
+            UInt16  address;      // block address
+            Byte    terminator;   // 0x10
         };
 
         // MEM_FORMAT
@@ -133,8 +133,8 @@ namespace hd1sharp
             Byte[132] unknown1;
             Byte[14] name;
             Byte[22] unknown2;
-            lbcd rxfreq4;
-            lbcd txfreq4;       
+            lbcd rxfreq4;           // BCD coded
+            lbcd txfreq4;           // BCD coded
             Byte[20] unknow3;
         }
         */
