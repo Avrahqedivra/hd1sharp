@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.PowerOnProgressBar = new System.Windows.Forms.ProgressBar();
             this.percent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -75,12 +75,12 @@
             this.button3.Text = "Write";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // PowerOnProgressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(24, 200);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(284, 27);
-            this.progressBar1.TabIndex = 4;
+            this.PowerOnProgressBar.Location = new System.Drawing.Point(24, 200);
+            this.PowerOnProgressBar.Name = "PowerOnProgressBar";
+            this.PowerOnProgressBar.Size = new System.Drawing.Size(284, 27);
+            this.PowerOnProgressBar.TabIndex = 4;
             // 
             // percent
             // 
@@ -95,9 +95,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 257);
+            this.ClientSize = new System.Drawing.Size(334, 257);
             this.Controls.Add(this.percent);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.PowerOnProgressBar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -120,7 +120,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar PowerOnProgressBar;
         private System.Windows.Forms.Label percent;
     }
 }
