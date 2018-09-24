@@ -41,7 +41,7 @@ namespace hd1sharp.Resources
         Boolean cancelled = false;
         int currentReceiveIndex = 0;
         int currentSendIndex = 0;
-        Byte[] receivedData = new byte[1200];
+        Byte[] receivedData = new Byte[1200];
         Byte[] bmpWriteBuffer = null;
 
         public PowerOnLogo()
@@ -331,7 +331,7 @@ namespace hd1sharp.Resources
             }
         }
 
-        private byte[] GetRGBValues(Bitmap bmp)
+        private Byte[] GetRGBValues(Bitmap bmp)
         {
 
             // Lock the bitmap's bits. 
@@ -343,7 +343,7 @@ namespace hd1sharp.Resources
 
             // Declare an array to hold the bytes of the bitmap.
             int bytes = bmpData.Stride * bmp.Height;
-            byte[] rgbValues = new byte[bytes];
+            Byte[] rgbValues = new Byte[bytes];
 
             // Copy the RGB values into the array.
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
