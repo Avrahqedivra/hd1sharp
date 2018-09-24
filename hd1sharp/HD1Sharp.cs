@@ -1827,7 +1827,7 @@ namespace hd1sharp
             openFileDialog1.Multiselect = true;
             openFileDialog1.Title = "Open Channel File";
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 try
                 {                   
@@ -2304,7 +2304,7 @@ namespace hd1sharp
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 try
                 {
@@ -2328,7 +2328,7 @@ namespace hd1sharp
             openFileDialog1.Multiselect = true;
             openFileDialog1.Title = "Open Configuration File";
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 try
                 {
@@ -2393,7 +2393,7 @@ namespace hd1sharp
             saveFileDialog.RestoreDirectory = true;
             saveFileDialog.Title = "Save Configuration File";
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 try
                 {
@@ -2439,7 +2439,7 @@ namespace hd1sharp
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 try
                 {                    

@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PowerOnLogo));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PowerOnLogoPicture = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.PowerOnProgressBar = new System.Windows.Forms.ProgressBar();
             this.percent = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerOnLogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // PowerOnLogoPicture
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 132);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.PowerOnLogoPicture.Image = ((System.Drawing.Image)(resources.GetObject("PowerOnLogoPicture.Image")));
+            this.PowerOnLogoPicture.Location = new System.Drawing.Point(24, 28);
+            this.PowerOnLogoPicture.Name = "PowerOnLogoPicture";
+            this.PowerOnLogoPicture.Size = new System.Drawing.Size(160, 128);
+            this.PowerOnLogoPicture.TabIndex = 0;
+            this.PowerOnLogoPicture.TabStop = false;
             // 
             // button1
             // 
@@ -55,6 +55,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Open";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.PowerOnLogoOpen_Click);
             // 
             // button2
             // 
@@ -74,6 +75,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Write";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.PowerOnLogoWrite);
             // 
             // PowerOnProgressBar
             // 
@@ -101,14 +103,14 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PowerOnLogoPicture);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PowerOnLogo";
             this.Text = "PowerOnLogo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PowerOnLogo_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerOnLogoPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +118,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PowerOnLogoPicture;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
