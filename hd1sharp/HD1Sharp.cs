@@ -111,6 +111,14 @@ namespace hd1sharp
 
         public String strConfigFilePath = "";
 
+        // serial
+        float percentage = 0.0f;
+        Byte[] readCommand;
+        SerialPortInput serialPort;
+        Boolean cancelled = false;
+        int currentReceiveIndex = 0;
+        Byte[] receivedData = new Byte[1200];
+
         /*
          * https://chirp.danplanet.com/issues/5809
          */
@@ -155,6 +163,11 @@ namespace hd1sharp
             createAddressBookGrid();
             createPriorityContactsGrid();
             initializeEncryption();
+
+            if (!String.IsNullOrWhiteSpace(defaultPort))
+            {
+                serialPort = new SerialPortInput(defaultPort, 115200, SerialPortLib2.Port.Parity.None, 8, SerialPortLib2.Port.StopBits.One, SerialPortLib2.Port.Handshake.RequestToSend, true);
+            }
 
             // Double buffering can make DGV slow in remote desktop
             if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
@@ -661,6 +674,38 @@ namespace hd1sharp
 
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
+        }
+
+        private void readConfigurationTw(String strFile)
+        {
+            FileStream fs = new FileStream(strFile, FileMode.Open);
+            int len = (int)fs.Length;
+            Byte[] bits = new Byte[len];
+            fs.Read(bits, 0, len);
+
+            int idSettings = 0x02d4;
+
+            // for(int i=0; i)
+
+            fs.Close();
+
+            // Dump 16 bytes per line
+/*
+            for (int ix = 0; ix < len; ix += 16)
+            {
+                var cnt = Math.Min(16, len - ix);
+                var line = new byte[cnt];
+                Array.Copy(bits, ix, line, 0, cnt);
+                // Write address + hex + ascii
+                Console.Write("{0:X6}  ", ix);
+                Console.Write(BitConverter.ToString(line));
+                Console.Write("  ");
+                // Convert non-ascii characters to .
+                for (int jx = 0; jx < cnt; ++jx)
+                    if (line[jx] < 0x20 || line[jx] > 0x7f) line[jx] = (byte)'.';
+                Console.WriteLine(Encoding.ASCII.GetString(line));
+            }
+*/
         }
 
         private void readConfiguration(String strFile)
@@ -2322,7 +2367,7 @@ namespace hd1sharp
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = ".";
-            openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml|tw files (*.tw)|*.tw|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.Multiselect = true;
@@ -2332,16 +2377,25 @@ namespace hd1sharp
             {
                 try
                 {
-                    readConfiguration(openFileDialog1.FileName);
-                    strConfigFilePath = openFileDialog1.FileName;
-
-                    /* 
-                        if channel tab, refresh the grid after loading configuration
-                    */
-                    if (tabContainer.SelectedTab.Name == "Channel")
+                    if (openFileDialog1.FileName.ToLower().EndsWith(".tw"))
                     {
-                        channelGridView.Update();
-                        channelGridView.Refresh();
+                        readConfigurationTw(openFileDialog1.FileName);
+                        strConfigFilePath = openFileDialog1.FileName;
+                    }
+
+                    if (openFileDialog1.FileName.ToLower().EndsWith(".xml"))
+                    {
+                        readConfiguration(openFileDialog1.FileName);
+                        strConfigFilePath = openFileDialog1.FileName;
+
+                        /* 
+                            if channel tab, refresh the grid after loading configuration
+                        */
+                        if (tabContainer.SelectedTab.Name == "Channel")
+                        {
+                            channelGridView.Update();
+                            channelGridView.Refresh();
+                        }
                     }
 
                 }
@@ -2774,25 +2828,113 @@ namespace hd1sharp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void closeSerial()
         {
+            if (serialPort.IsConnected)
+            {
+                serialPort.ConnectionStatusChanged -= SerialPort_ConnectionStatusChanged;
+                serialPort.MessageReceived -= SerialPort_MessageReceived;
+                // serialPort.MessageReceived -= SerialPort_WriteMessageReceived;
 
+                Console.WriteLine("\nTest sequence completed, now disconnecting.");
+                serialPort.Disconnect();
+            }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        void SerialPort_ConnectionStatusChanged(object sender, ConnectionStatusChangedEventArgs args)
         {
-
+            /*
+            if (OnConnecting != null)
+                OnConnecting(this, new StateDeviceEventArgs(args.Connected));
+            */
+            Console.WriteLine("Serial port connection status = {0}", args.Connected);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        void SerialPort_MessageReceived(object sender, MessageReceivedEventArgs args)
         {
+            if (cancelled)
+            {
+                closeSerial();
+                return;
+            }
 
+            // get received data
+            for (UInt16 i = 0; i < args.Data.Length; i++)
+                receivedData[currentReceiveIndex++] = args.Data[i];
+
+            // check if echo of command is correct
+            for (UInt16 i = 0; i < Math.Min(10, currentReceiveIndex); i++)
+            {
+                if (receivedData[i] != readCommand[i])
+                {
+                    // Console.WriteLine("Received bad message: {0} {1}", receivedData[4], ByteToHexBitFiddle(args.Data));
+                    cancelled = true;
+                    closeSerial();
+                    return;
+                }
+            }
+
+            // check expected length (10+1024+1)
+            if (currentReceiveIndex < 1035)
+                return;
+
+            // check correct buffer end
+            if (receivedData[currentReceiveIndex - 1] != (Byte)0x10)
+            {
+                cancelled = true;
+                closeSerial();
+                return;
+            }
+
+            // Console.WriteLine("Received message: {0} {1}", receivedData[4], ByteToHexBitFiddle(args.Data));
+
+            if (receivedData[8] == 0xf7)
+            {
+                percentage = 100;
+                readCommand = new Byte[] { (Byte)'E', (Byte)'N', (Byte)'D' };
+            }
+            else
+            {
+                percentage += (float)2.5;
+                UInt16 address = (UInt16)(((receivedData[9] << 8) | receivedData[8]) + 1);
+                readCommand = new Byte[] { 0x68, 0x31, 0x00, 0x01, (Byte)Math.Min((Byte)Math.Round(percentage), (Byte)100), 0xEB, 0x00, 0x04, (Byte)(address & 0xff), (Byte)((address >> 8) & 0xff), 0x10 };
+            }
+
+            // SetProgressBarSafe(progressPercent);
+            // percent.Text = String.Format("Completion percentage {0}%", GetPercentage);
+
+            currentReceiveIndex = 0;
+            // Console.WriteLine("Sending message:     {0}", ByteToHexBitFiddle(readCommand));
+            serialPort.SendMessage(readCommand);
+
+            if (readCommand.Length == 3)
+            {
+                DialogResult result = MessageBox.Show("Read OK !", "HD1 GPS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.OK)
+                {
+                }
+
+                closeSerial();
+            }
         }
 
-
-        private void button7_Click(object sender, EventArgs e)
+        private void ReadContactsFromRig(Object sender, EventArgs e)
         {
+            percentage = 2.0f;
+            cancelled = false;
+            readCommand = new Byte[] { 0x68, 0x31, 0x00, 0x01, 0x00, 0xEB, 0x00, 0x04, 0x00, 0x0D, 0x10 };
 
+            serialPort.ConnectionStatusChanged += SerialPort_ConnectionStatusChanged;
+            serialPort.MessageReceived += SerialPort_MessageReceived;
+            serialPort.Connect();
+
+            // Try sending some data if connected
+            if (serialPort.IsConnected)
+            {
+                // Console.WriteLine("Sending message:     {0}", ByteToHexBitFiddle(redCommand));
+                serialPort.SendMessage(readCommand);
+            }
         }
     }
 

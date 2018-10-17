@@ -2030,6 +2030,7 @@
             resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ReadContactsFromRig);
             // 
             // ImportAddressBook
             // 
@@ -2196,7 +2197,6 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.Name = "button5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button7
             // 
@@ -2205,7 +2205,6 @@
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.Name = "button7";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -2214,7 +2213,6 @@
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.Name = "button6";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button1
             // 
@@ -2223,7 +2221,6 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ciRemoveSelectedMember
             // 
