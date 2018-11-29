@@ -683,7 +683,7 @@ namespace hd1sharp
             Byte[] bits = new Byte[len];
             fs.Read(bits, 0, len);
 
-            int idSettings = 0x02d4;
+ //           int idSettings = 0x02d4;
 
             // for(int i=0; i)
 
