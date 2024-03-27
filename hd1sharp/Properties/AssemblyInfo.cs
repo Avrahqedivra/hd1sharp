@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("hd1sharp")]
-[assembly: AssemblyCopyright("Copyright ©  2018 - Jean-Michel Cohen")]
+[assembly: AssemblyCopyright("Copyright © 2018-24 - F4JDN - Jean-Michel Cohen")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
