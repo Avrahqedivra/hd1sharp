@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 Jean-Michel COHEN
+Copyright (c) 2018-24 - F4JDN - Jean-Michel COHEN
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
