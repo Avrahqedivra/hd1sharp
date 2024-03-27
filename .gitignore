@@ -23,10 +23,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-screenshots/
 VBinDiff.exe
-Untitled-m.tw
-AddressBook.csv
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -332,12 +329,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/hd1sharp/files/97981 DMR USERS 30MY18.csv
-/hd1sharp/files/HackingTheMD380.pdf
-/hd1sharp/files/USB DFU en.CD00264379.pdf
 /.editorconfig
-/hd1sharp/files/KQRUG.pdf
-/hd1sharp/files/K22P121M120SF7RM.pdf
-/hd1sharp/files/K22P121M120SF7.pdf
-/hd1sharp/files/AN4835.pdf
-/hd1sharp/files/2013417144532916.pdf
+
+# doc files
+/hd1sharp/files/DataGridView.pdf
+
+
